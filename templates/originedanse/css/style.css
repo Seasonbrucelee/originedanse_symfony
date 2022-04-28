@@ -1,0 +1,261 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Ubuntu', sans-serif; 
+    font-size: 100%
+}
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Ubuntu&display=swap');
+body {
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #031472;
+    padding: 0;
+    margin: 0%;
+}
+header {
+    width: 100%;
+}
+nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px;
+}
+ul li{
+    list-style-type: none;
+    width: 100%;
+    background-color: #031472;
+    color: #b4351c;
+    font-family: 'Ubuntu', sans-serif;  
+    font-size: 30px;
+}
+ul{
+    margin: 0px;
+    text-decoration: #0c49df 1px solid;
+}
+li{
+    padding: 0;
+    margin-right: 10px;
+    align-items: center;  
+}
+a{
+    color:#b4351c;
+}
+a:hover{
+    color: #0c49df;
+}
+main{
+    padding: 0;
+    margin: 0;
+}
+main>figure{
+    overflow: hidden;
+}
+main>figure img{
+    width: 100%;
+    display: block;
+    position: relative;
+}
+h1{
+    color: #b4351c;
+    text-align: center;
+    text-decoration:underline;
+    font-size: 50px;
+    margin: 20px;
+}
+/*********** SECTION ARTICLE **********/
+main section{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+main article {
+    position: relative;
+    margin-bottom: 70px;
+    margin-top: 70px;
+    width: 70%;
+}
+article{
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    display: flex;
+    flex-direction: column;
+    color: #b4351c;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 20px;
+}
+p{
+    color:#0c49df;
+    font-size: medium;
+}
+
+article figure img{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+article iframe{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-self: center;
+    margin: 10px;
+}
+/*aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}*/
+aside iframe{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+}
+/********************** FOOTER NAV *************************/
+
+footer{
+    padding: 0px 0px 0px 0px;
+} 
+footer nav{
+    display: flex;
+    flex-direction: row;
+}
+footer nav ul{
+    display: flex;
+    flex-direction: column;
+   /* justify-content: left;*/
+    margin: 0%;
+    padding: 10px;
+    width: 100%;
+}
+footer nav ul li{
+    list-style-type: none;
+    width: 100%;
+    background-color: #031472;
+    font-family: 'Ubuntu', sans-serif;  
+    font-size: 30px;
+}
+a{
+    color:#b4351c;
+}
+a:hover{
+    color: #0c49df;
+}
+
+/*****FOOTER SOCIAL MEDIA***/
+footer section{
+    display: flex;
+    justify-content: center;
+}
+footer figure{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    padding: 10px;
+}
+footer section+section a {
+    margin:0 25px;
+    transition: opacity 400ms ease-out;
+}
+footer section+section a:hover, footer section+section a:focus {
+    opacity: 0.5;
+}
+/* ........ footer copyright ........ */
+footer section+p {
+    color: #b4351c;
+    text-align: center;
+}
+
+@media all and (min-width:1030px) {
+    /* ============================= global layout =============================== */
+    html{
+        font-size: 50%;
+    }
+    header {
+        display: flex;
+        flex-direction: row;
+    }
+    header nav ul{
+        display: flex;
+        flex-direction: row;
+        width: auto;
+    }
+    header nav ul li{
+        width: auto;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    /* =================================== main =================================== */
+    main {
+        padding: 25px 0 0 0;
+    }
+    /* ........ large image ......... */
+    main>figure img {
+        width: 100%;
+        position: static;
+        padding: 10px;
+    }
+    /* ........ articles ......... */
+    main section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    main article {
+        position: relative;
+        margin-bottom: 70px;
+        width: 35%;
+    }
+    /* =================================== footer =================================== */
+    /* ........ footer nav ......... */
+    footer nav{
+        display: flex;
+        flex-direction: row;
+        width: 100%
+    }
+    footer nav ul{
+        display: flex;
+        flex-direction: row;
+       /* justify-content: center;*/
+        width: 100%;
+    }
+    footer nav ul li{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+       /* background-color: yellow;*/
+        font-family: 'Ubuntu', sans-serif;  
+        font-size: 30px;
+    }
+    
+    /* ........ footer div ....... */
+    footer>div {
+        padding-top: 65px;
+    }
+    /* ........ arguments ......... */
+    footer nav+section article {
+        width: 22%;
+    }
+    footer nav+section article figure {
+        width: 30%;
+    }
+    /* ........ social ......... */
+    footer section+section a {
+        margin: 0 35px;
+    }
+}
+
+
+
