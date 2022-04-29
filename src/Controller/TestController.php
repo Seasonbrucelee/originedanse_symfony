@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TestController extends AbstractController
 {
-    #[Route('/test', name: 'app_test')]
+    #[Route('/test', name: 'test')]
     public function index(): Response
     {
         return $this->render('test/index.html.twig', [
@@ -18,9 +18,10 @@ class TestController extends AbstractController
     }
     #[Route('/test/{id}', name: 'test_id', methods: ["GET"], requirements: ['id' => '\d+'])]
     public function test_id($id): Response
-    {   dd($id);
+    {   //dd($id);
         return $this->render('test/test.html.twig', [
-            'controller_name' => 'TestController',
+            'controller_name' => 'TestControllerIdController',
+            'id' => $id,
         ]);
     }
 }

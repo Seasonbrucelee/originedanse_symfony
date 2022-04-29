@@ -10,11 +10,11 @@
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
+        This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/symfony-projet/src/Controller/TestController.php'|file_link(0) }}">src/Controller/TestController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/symfony-projet/templates/test/index.html.twig'|file_link(0) }}">templates/test/index.html.twig</a></code></li>
+        <li>Your controller at <code><a href="{{ path('test') }}">Lien vers test</a></code></li>
+        <li>Your template at <code><a href="{{ path('test_id', {id: 13}) }}">Lien vers le test id</a></code></li>
+       
     </ul>
 </div>
 {% endblock %}
