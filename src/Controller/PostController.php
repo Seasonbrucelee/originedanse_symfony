@@ -16,11 +16,12 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/post/{$id}', name: 'post_view', methods: ["GET"], requirements: ['id' => '\d+'])]
-    public function post_id(): Response
+    #[Route('/post/{id}', name: 'post_id', methods: ["GET"], requirements: ['id' => '\d+'])]
+    public function post_id($id): Response
     {
         return $this->render('post/post.html.twig', [
             'controller_name' => 'PostControllerAvecId',
+            'id' => $id,
         ]);
     }
 
