@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Orgine Danse{% endblock %}</title>
+
+    <link href="{{ asset('originedanse/css/style.css') }}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Ubuntu&display=swap" rel="stylesheet">
+        
+</head>
+<body>  
+    <header>
+        <div>
+            <img src="{{ asset('originedanse/images/logo_texte.png') }}" alt="logo" width="150">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ path('home')}}">Accueil</a></li>
+                <li><a href="#cours">Cours Open</a></li>
+                <li><a href="#professeurs">Professeurs</a></li>
+                <li><a href="#formations">Formations</a></li>
+                <li><a href="#tarifs">Tarifs</a></li>
+            </ul>
+        </nav>  
+    </header>
+    <main>
+        <h1>LE KRUMP</h1>
+        <figure>
+            <img src="{{ asset('originedanse/images/danseurkrump.jpg') }}" alt="danseur krump">
+        </figure>
+        <section>
+        <article>
+            <figure><img src="{{ asset('originedanse/images/rize.jpg') }}" alt="affiche film rize"></figure>
+            <h2>Film Rize</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+        </article>
+        <article>
+            <figure><img src="{{ asset('originedanse/images/enfanttribut.jpg') }}" alt="photo enfant de tribut"></figure>
+            <h2>Origine du Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+        </article>
+        <article>
+            <figure><img src="{{ asset('originedanse/images/connection.jpg') }}" alt="spiritualité"></figure>
+            <h2>Connection à ses émotions dans le Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+        </article>
+        <article>
+            <figure><img src="{{ asset('originedanse/images/krumpeuse.jpg') }}" alt="krumpeuse"></figure>
+            <h2>La mise en avant des femmes dans le Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+        </article>
+        <article>
+            <h2>Battle Krumpfest-Demo Speaker WRESTLER</h2>
+                <iframe width="650" height="500" src="https://www.youtube.com/embed/GCQlfDdf68g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </article>
+        <aside>
+                <h2>Le son du moment</h2>
+                <iframe src="https://open.spotify.com/embed/track/58pXqeiCCwGBQGugChlYwn?utm_source=generator" width="600" height="450" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </aside>
+            
+    </section>
+</main>
+
+<footer>
+            <!-- ________ navigation secondaire ________ -->
+           <nav>
+               <ul>
+                    <li><a href="#">Qui sommes-nous</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">CGV</a></li>
+                </ul>
+            </nav>
+            <!-- ________ social networks ________ -->
+            <section>
+                <figure>
+                    <a href="#">
+                        <img src="{{ asset('originedanse/images/icon-facebook.png') }}" alt="Facebook">
+                    </a>
+                    <a href="#">
+                        <img src="{{ asset('originedanse/images/icon-twitter.png') }}" alt="Twitter">
+                    </a>
+                    <a href="#">
+                        <img src="{{ asset('originedanse/images/icon-linkedin.png') }}" alt="Linkedin">
+                    </a>
+                </figure>
+            </section>
+            <p>&copy; 2010 origine danse. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

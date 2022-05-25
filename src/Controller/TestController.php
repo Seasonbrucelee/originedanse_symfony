@@ -20,7 +20,7 @@ class TestController extends AbstractController
     public function test_id($id): Response
     {   //dd($id);
         return $this->render('test/test.html.twig', [
-            'controller_name' => 'TestControllerIdController',
+            'controller_name' => 'TestController IdController',
             'id' => $id,
         ]);
     }
