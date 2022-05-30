@@ -21,13 +21,13 @@
         </div>
         <nav>
             <ul>
-                <li><a href="{{ path('home')}}">Accueil</a></li>
+                <li><a href="{{ path('home') }}">Accueil</a></li>
                 <li><a href="#cours">Cours Open</a></li>
                 <li><a href="#professeurs">Professeurs</a></li>
                 <li><a href="#formations">Formations</a></li>
-                <li><a href="#incription">S'inscrire</a></li>
-                <li><a href="#connexion">Connexion</a></li>
-                <li><a href="#connexion">Déconnexion</a></li>
+                <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
 
                 {% for message in app.flashes('success') %}
                     <div class="alert alert-success" role="alert">{{ message }}</div>
