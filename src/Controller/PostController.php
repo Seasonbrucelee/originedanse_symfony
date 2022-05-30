@@ -20,12 +20,19 @@ class PostController extends AbstractController
     public function post($id): Response
     {   
         return $this->render('post/view.html.twig', [
-            'controller_name' => 'MaPagePost',
+            'post' => [
+                'title' => 'Film RIZE',
+                'content' => '
+                Rize révèle un phénomène urbain qui est en train d\'exploser à Los Angeles et de se propager sur la Côte Est. Parce qu\'il est au contact de celui-ci depuis longtemps, le photographe David Lachapelle a réussi à saisir la naissance d\'une forme révolutionnaire d\'expression artistique issue du mal de vivre des exclus du rêve américain : le krumping.
+
+                Cette danse agressive et visuellement incroyable, alternative à la danse hip hop habituelle, prend ses racines dans les danses tribales africaines et se caractérise par des pas et des mouvements d\'une vitesse et d\'une difficulté inégalées.
+
+                Rize suit cette fascinante évolution à travers l\'histoire de Tommy le Clown, un éducateur de South Central à Los Angeles, qui a inventé cette danse en réponse aux émeutes raciales consécutives à l\'affaire Rodney King.'
+            ],
         ]);
     
     }
-}
-           
+}    
    /*#[Route('/post/{id}', name: 'post_id', methods: ["GET"], requirements: ['id' => '\d+'])]
     public function post_id($id): Response
     {
