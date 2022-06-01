@@ -5,10 +5,11 @@
 {% block body %}
 <article>
     <div>
-            <figure><img src="{{ asset('originedanse/images/rize.jpg') }}" alt="affiche film rize"></figure>
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.content }}
-            </p>
+        <img src="{{ asset('originedanse/images/rize.jpg') }}" class="rize" alt="affiche film rize">
+        <div>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        </div>
     </div>
     </article>
 {% endblock %}

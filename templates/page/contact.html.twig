@@ -1,20 +1,32 @@
 {% extends 'originedanse.html.twig' %}
 
-{% block title %}Hello PageController!{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h2>Formulaire de Contact</h2>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="container">
+  <form>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/symfony-projet/src/Controller/PageController.php'|file_link(0) }}">src/Controller/PageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/symfony-projet/templates/page/index.html.twig'|file_link(0) }}">templates/page/index.html.twig</a></code></li>
-    </ul>
+    <label for="fname">Prénom</label>
+    <input type="text" id="fname" name="prenom" placeholder="Votre prénom..">
+
+    <label for="lname">Nom</label>
+    <input type="text" id="lname" name="nom" placeholder="Votre nom..">
+
+    <label for="country">Pays</label>
+    <select id="country" name="pays">
+      <option value="france">France</option>
+      <option value="belgique">Belgique</option>
+      <option value="suisse">Suisse</option>
+      <option value="espagne">Espagne</option>
+    </select>
+
+    <label for="subject">Sujet</label>
+    <textarea id="subject" name="sujet" placeholder="Votre message.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
 </div>
 {% endblock %}
