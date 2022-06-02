@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{% block title %}Welcome!symfony{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ asset('originedanse/images/logo_sans.png') }}" />
     <link href="{{ asset('originedanse/css/style.css') }}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="{{ path('home') }}" style="text-decoration:none" >Accueil</a></li>
+                <li><a href="{{ path('home') }}">Accueil</a></li>
                 <li><a href="#cours">Cours Open</a></li>
                 <li><a href="#professeurs">Professeurs</a></li>
                 <li><a href="#formations">Formations</a></li>

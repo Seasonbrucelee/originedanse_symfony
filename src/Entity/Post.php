@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
@@ -16,6 +17,8 @@ class Post
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
+    /*** Gestion des slugs par GEDMO, installé en passant par composer. Ici, on utilise "title" ***/
+    #[Gedmo\Slug(fields: ['title'])]
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
 
@@ -60,13 +63,14 @@ class Post
     {
         return $this->slug;
     }
-
+    /* Nous desactivons le setter de slug car, nous avons installé un bundle pour gérer les slug et CretedAt-> antishov/doctrine-extensions-bundle 
+    
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
 
         return $this;
-    }
+    }*/
 
     public function getContent(): ?string
     {
