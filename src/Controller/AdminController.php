@@ -26,14 +26,27 @@ class AdminController extends AbstractController
     {
         //dd($request);
 
-        // Instace de Category 
+        // Instance de Category 
         $category = new Category();
+        
         //dd($category);
         //On demande de fabriquer un formulaire. en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
         $form = $this->createForm(CategoryType::class, $category);
-        dd($form);
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'Category Add',
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($category);
+            $em->flush();
+        return $this->redirectToRoute('admin_home');
+        }
+        //dd($form->createView());
+        //dd($form);
+        //On appelle une vue et on lui passe le form transformé en html
+        /*return $this->render('admin/index.html.twig', [
+            'controller_name' => 'Add Category',*/
+        return $this->render('admin/category/add.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }
