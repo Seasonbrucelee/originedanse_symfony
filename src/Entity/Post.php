@@ -17,7 +17,7 @@ class Post
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
-    /*** Gestion des slugs par GEDMO, installé en passant par composer. Ici, on utilise "title" ***/
+    /*** Gestion des slugs par GEDMO, installé en passant par composer. Ici, on utilise "title" le slug est basé sur le "title"***/
     #[Gedmo\Slug(fields: ['title'])]
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
@@ -28,6 +28,9 @@ class Post
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
 
+    /**
+    * @Gedmo\Timestampable(on="create")
+    */
     #[ORM\Column(type: 'datetime')]
     private $createdAt;
 
@@ -63,7 +66,7 @@ class Post
     {
         return $this->slug;
     }
-    /* Nous desactivons le setter de slug car, nous avons installé un bundle pour gérer les slug et CretedAt-> antishov/doctrine-extensions-bundle 
+    /* Nous desactivons le setter de slug car, nous avons installé un bundle pour gérer les slug et CretedAt-> antishov/doctrine-extensions-bundle. C'est un slug automatique
     
     public function setSlug(string $slug): self
     {
@@ -101,12 +104,12 @@ class Post
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    /***public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
-    }
+    }***/
 
     public function isActive(): ?bool
     {

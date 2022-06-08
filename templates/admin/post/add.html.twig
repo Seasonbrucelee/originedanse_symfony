@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{# Ici on se pose la question de savoir si ma vue doit avoir l'apparence de mon site ou d'un back office (d'admin)#}
+{% block title %}Ajout d'un article{% endblock %}
+    
+{% block body %}
+    <h1>Ajout d'un article</h1>
+    {#(form) est celui qui est dans AdminController 'form', le controlleur envoie dans une case qui s'appelle 'form' à twig et twig envoie createView#}
+    {#(form) contient le résultat de creatForm #}
+    {#Et le form est une fonction de twig pour fabriquer l'affichage à l'intérieur de la vue#}
+    {#Cette fonction affiche le formulaire reçu dans la variable twig qui s'appelle form #}
+    {{ form(form) }}
+{% endblock %}

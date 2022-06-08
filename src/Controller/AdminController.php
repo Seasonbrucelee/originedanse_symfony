@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/admin', name: 'admin_')]
 class AdminController extends AbstractController
 {
-    /**HOME PAGE DU FUTRE BACK-OFFICE**/
+    /**HOME PAGE DU FUTURE BACK-OFFICE**/
     #[Route('/', name: 'home')]
     public function index(): Response
     {
