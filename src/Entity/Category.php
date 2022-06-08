@@ -19,7 +19,7 @@ class Category
     #[ORM\Column(type: 'string', length: 100)]
     private $name;
 
-    /*** Gestion des slugs par GEDMO, installé en passant par composer ***/
+    //Gestion des slugs par GEDMO, installé en passant par composer
     #[Gedmo\Slug(fields: ['name'])]
     #[ORM\Column(type: 'string', length: 120)]
     private $slug;
@@ -31,7 +31,10 @@ class Category
     {
         $this->posts = new ArrayCollection();
     }
-
+    public function __toString()
+    {
+        return $this->name;
+    }
     public function getId(): ?int
     {
         return $this->id;
