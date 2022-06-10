@@ -7,8 +7,10 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{% block title %}#Dashboard - SB Admin {% endblock %}</title>
+    
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="{{ asset('sbadmin/css/styles.css') }}" rel="stylesheet" /><!--Modifcation de lien de css avec twig/ chemin dynamique-->
+        <link rel="icon" type="image/png" href="{{ asset('sbadmin/images/logo_sans.png') }}"/>
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
         {% block stylesheet %}{% endblock %}
@@ -87,9 +89,9 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
+                                            <a class="nav-link" href="{{ asset('sbadmin/401.html') }}">401 Page</a>
+                                            <a class="nav-link" href="{{ asset('sbadmin/404.html') }}">404 Page</a>
+                                            <a class="nav-link" href="{{ asset('sbadmin/500.html') }}">500 Page</a>
                                         </nav>
                                     </div>
                                 </nav>
