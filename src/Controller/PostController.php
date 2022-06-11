@@ -24,6 +24,16 @@ class PostController extends AbstractController
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
 
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+        $post->setUser($this->getUser());
+        $post->setActive(false);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($post);
+        $em->flush();
+        return $this->redirectToRoute('home');
+    }
         return $this->render('post/add.html.twig', [
             'form' => $form->createView(),
         ]);
