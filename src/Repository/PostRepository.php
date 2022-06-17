@@ -38,6 +38,21 @@ class PostRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function findOldPosts(int $nb = 4): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT p.slug, p.title, p.createdAt
+            FROM App\Entity\Post p
+            WHERE p.active = :status
+            ORDER BY p.createdAt ASC'
+        )
+        ->setParameter('status', true)
+        ->setMaxResults($nb)
+        ;
+        return $query->getResult();
+    }
 
 //    /**
 //     * @return Post[] Returns an array of Post objects

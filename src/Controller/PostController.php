@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Form\PostType;
+use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,11 +13,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PostController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function home(): Response
+    public function home(PostRepository $postRepository): Response
     {
+        //$posts = $postRepository->findAll(); //Le Controlleur récupère les données
+        //dd($posts);
+
+       $posts = $postRepository->findAll();
+       //dd($posts);
+    
+       $oldPosts = $postRepository->findOldPosts();
+       //dd($oldPosts);
+
         return $this->render('post/home.html.twig', [
-            'controller_name' => 'PostController',
+            'posts' => $posts,
+            'oldPosts' => $oldPosts,
+0
         ]);
+        // J'appelle ma VUE en lui envoyant tous les posts et c'est à lui de les afficher
+
+        /*return $this->render('post/home.html.twig', [
+            'controller_name' => 'PostController',
+        ]);*/
     }
     #[Route('/post/add', name:'post_add')]
     public function addPost(Request $request): Response
@@ -46,11 +63,15 @@ class PostController extends AbstractController
             'post' => $post               
         ]);
     }***/
-    #[Route('/post/{id}', name: 'post_view')]
-    public function post($id): Response
+    #[Route('/post/{slug}', name: 'post_view')]
+    public function post(Post $post): Response
     {   
+        //dd($post);
 
-          return $this->render('post/view.html.twig', [
+        return $this->render('post/view.html.twig', [
+            'post' => $post
+
+          /*return $this->render('post/view.html.twig', [
             'post' => [
                 'title' => 'Film RIZE',
                 'content' => '
@@ -59,7 +80,7 @@ class PostController extends AbstractController
                 Cette danse agressive et visuellement incroyable, alternative à la danse hip hop habituelle, prend ses racines dans les danses tribales africaines et se caractérise par des pas et des mouvements d\'une vitesse et d\'une difficulté inégalées.
 
                 Rize suit cette fascinante évolution à travers l\'histoire de Tommy le Clown, un éducateur de South Central à Los Angeles, qui a inventé cette danse en réponse aux émeutes raciales consécutives à l\'affaire Rodney King.'
-            ],
+            ],*/
         ]);
        }
 }
