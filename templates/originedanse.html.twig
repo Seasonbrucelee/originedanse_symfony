@@ -23,9 +23,7 @@
             <ul>
                 <li><a href="{{ path('home') }}">Accueil</a></li>
                 <li><a href="#cours">Cours Open</a></li>
-                <li><a href="#professeurs">Professeurs</a></li>
-                <li><a href="#formations">Formations</a></li>
-
+                
                 {% if not is_granted("ROLE_USER") %}
 
                 <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
@@ -67,7 +65,6 @@
             </nav>
             <!-- ________ social networks ________ -->
             <section>
-                <figure>
                     <a href="#">
                         <img src="{{ asset('originedanse/images/icon-facebook.png') }}" alt="Facebook">
                     </a>
@@ -77,11 +74,8 @@
                     <a href="#">
                         <img src="{{ asset('originedanse/images/icon-linkedin.png') }}" alt="Linkedin">
                     </a>
-                </figure>
             </section>
             <p>&copy; 2010 Origine Danse. Tous droits réservés.</p>
     </footer>
-<!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

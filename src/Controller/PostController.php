@@ -27,7 +27,6 @@ class PostController extends AbstractController
         return $this->render('post/home.html.twig', [
             'posts' => $posts,
             'oldPosts' => $oldPosts,
-0
         ]);
         // J'appelle ma VUE en lui envoyant tous les posts et c'est à lui de les afficher
 

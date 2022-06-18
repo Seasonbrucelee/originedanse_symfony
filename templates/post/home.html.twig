@@ -13,16 +13,19 @@
 
         {% for post in posts %}{# posts au pluriel est le tableau que le Controller envoie et pos au singulier ça sera, à chque tour de boucle un article à la fois. C'est ce post au singulier que l'on utilise pour afficher nos variables #}
         <section>
-        <article>
-            <a href="{{ path('post_view', {slug: post.slug}) }}">
-            <figure><img src= "{{ post.image }}" alt="" style="width: 100%"></figure>
-            <h2>{{ post.title }}</h2>
-            <h3>{{ post.content | u.truncate(150, '...') | raw}}</h3>
-            <p>
-                Ecrit par {{ post.user.email }} {{ post.createdAt | ago}} - Classé dans {{ post.category.name }}
-            </p>
-            </a>
-        </article>
+            <article>
+                <div class="container">
+                    <a href="{{ path('post_view', {slug: post.slug}) }}">
+                        <figure><img src= "{{ post.image }}" alt="" style="width: 100%"></figure>
+                        <h2>{{ post.title }}</h2>
+                        <p>{{ post.content | u.truncate(150, '...') | raw}}</p>
+                        <p>
+                            Ecrit par {{ post.user.email }} {{ post.createdAt | ago}} - Classé dans {{ post.category.name }}
+                        </p>
+                    </a>
+                </div>
+            </article>
+        </section>
         {% endfor %}
         <!--<article>
             <a href="{#{{ path('post_view', {id:2}) }}">
@@ -46,6 +49,23 @@
             </a>
         </article>-->
             <!-- Sidebar -->
+        <
+        <section>
+        <div class="container">   
+        <article>
+            <h2>Battle Krumpfest-Demo Speaker WRESTLER</h2>
+                <iframe width="650" height="500" src="https://www.youtube.com/embed/GCQlfDdf68g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </article>
+        </section>
+        <aside>
+                <h2>Le son du moment</h2>
+                <iframe src="https://open.spotify.com/embed/track/58pXqeiCCwGBQGugChlYwn?utm_source=generator" width="650" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </aside>
+        </div>    
+        <!-- Pager-->
+                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+            </div>
+            <!-- Sidebar -->
             <div class="col-lg-4 col-md-4 mx-auto">
                 <h2>Les anciens articles</h2>
                 
@@ -59,16 +79,5 @@
                 {% endfor %}
 
             </div>
-            
-        <article>
-            <h2>Battle Krumpfest-Demo Speaker WRESTLER</h2>
-                <iframe width="650" height="500" src="https://www.youtube.com/embed/GCQlfDdf68g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </article>
-        <aside>
-                <h2>Le son du moment</h2>
-                <iframe src="https://open.spotify.com/embed/track/58pXqeiCCwGBQGugChlYwn?utm_source=generator" width="600" height="450" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-        </aside>
-            
-    </section>
 </main>
 {% endblock %}
