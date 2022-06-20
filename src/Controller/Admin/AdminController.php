@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Form\PostType;
 use App\Entity\Category;
 use App\Form\CategoryType;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,7 +25,7 @@ class AdminController extends AbstractController
     }
     #[Route('/category/add', name: 'category_add')]
     /** (Request $request) = Objet Request et injection de dépendance */
-    public function addCategory(Request $request): Response
+    public function addCategory(Request $request, ManagerRegistry $doctrine): Response
     {
         //dd($request);
         // Instance de Category 
@@ -36,7 +37,8 @@ class AdminController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            //$em = $this->getDoctrine()->getManager();
+            $em = $doctrine->getManager();
             $em->persist($category);
             $em->flush();
         return $this->redirectToRoute('admin_home');
@@ -51,7 +53,7 @@ class AdminController extends AbstractController
         ]);
     }
     #[Route('/post/add', name:'post_add')]
-    public function addPost(Request $request): Response
+    public function addPost(Request $request, ManagerRegistry $doctrine): Response
     {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
@@ -61,7 +63,8 @@ class AdminController extends AbstractController
             
         $post->setUser($this->getUser());
         $post->setActive(false);
-        $em = $this->getDoctrine()->getManager();
+        //$em = $this->getDoctrine()->getManager();
+        $em = $doctrine->getManager();
         $em->persist($post);
         $em->flush();
         return $this->redirectToRoute('home');
