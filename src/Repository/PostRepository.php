@@ -38,7 +38,7 @@ class PostRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-    public function findOldPosts(int $nb = 4): array
+    public function findOldPosts(int $nb = 5): array
     {
         $entityManager = $this->getEntityManager();
 
@@ -51,7 +51,7 @@ class PostRepository extends ServiceEntityRepository
         ->setParameter('status', true)
         ->setMaxResults($nb)
         ;
-        return $query->getResult();
+        return $query->getResult();// méthode de l'objet ORM
     }
 
 //    /**

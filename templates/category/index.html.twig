@@ -1,21 +1,87 @@
-{% extends 'base.html.twig' %}
+{% extends 'originedanse.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Origine Danse{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{#{{ dump(posts) }}#}
+<!-- Main Content -->
+<main>
+        <h1>LE KRUMP</h1>
+        <figure>
+            <img src="{{ asset('originedanse/images/nachk.jpg') }}" class="nach" alt="danseur krump">
+        </figure>
 
-<div class="example-wrapper">
-    <h1>Hello ! ✅</h1>
+        <h2>Catégory : {{ category.name }} </h2>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/originedanse_symfony/src/Controller/CategoryController.php'|file_link(0) }}">src/Controller/CategoryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/originedanse_symfony/templates/category/index.html.twig'|file_link(0) }}">templates/category/index.html.twig</a></code></li>
-    </ul>
-   {#{{dump(category.posts)}}#}
-</div>
+        {% for post in category.posts %}{# posts au pluriel est le tableau que le Controller envoie et pos au singulier ça sera, à chque tour de boucle un article à la fois. C'est ce post au singulier que l'on utilise pour afficher nos variables #}
+        <section>
+            <article>
+                <div class="container">
+                    <a href="{{ path('post_view', {slug: post.slug}) }}">
+                        <figure><img src= "{{ post.image }}" alt="" style="width: 100%"></figure>
+                        <h2>{{ post.title }}</h2>
+                        <p>{{ post.content | u.truncate(150, '...') | raw}}</p>
+                        <p>
+                            Ecrit par {{ post.user.email }} {{ post.createdAt | ago}} - Classé dans {{ post.category.name }}
+                        </p>
+                    </a>
+                </div>
+            </article>
+        </section>
+        {% endfor %}
+        <!--<article>
+            <a href="{#{{ path('post_view', {id:2}) }}">
+            <figure><img src="{{ asset('originedanse/images/enfanttribut.jpg') }}#}" alt="photo enfant de tribut"></figure>
+            <h2>Origine du Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+            </a>
+        </article>
+        <article>
+            <a href="{#{{ path('post_view', {id:3}) }}#}">
+            <figure><img src="{#{{ asset('originedanse/images/connection.jpg') }}#}" alt="spiritualité"></figure>
+            <h2>Connection à ses émotions dans le Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+            </a>
+        </article>
+        <article>
+            <a href="{#{{ path('post_view', {id:4}) }}#}">
+            <figure><img src="{#{{ asset('originedanse/images/krumpeuse.jpg') }}#}" alt="krumpeuse"></figure>
+            <h2>La mise en avant des femmes dans le Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+            </a>
+        </article>-->
+            <!-- Sidebar -->
+        <
+        <section>
+        <div class="container">   
+        <article>
+            <h2>Battle Krumpfest-Demo Speaker WRESTLER</h2>
+                <iframe width="650" height="500" src="https://www.youtube.com/embed/GCQlfDdf68g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </article>
+        </section>
+        <aside>
+                <h2>Le son du moment</h2>
+                <iframe src="https://open.spotify.com/embed/track/58pXqeiCCwGBQGugChlYwn?utm_source=generator" width="650" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </aside>
+        </div>    
+        <!-- Pager-->
+                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+            </div>
+            <!-- Sidebar -->
+            <div class="col-lg-4 col-md-4 mx-auto">
+                <h2>Les anciens articles</h2>
+                
+               {# {% for oldPost in oldPosts %} 
+                    <div class="post-preview">
+                        <a href="{{ path('post_view', {slug: oldPost.slug}) }}">
+                            <h2 class="post-subtitle">{{ oldPost.title }}</h2>
+                        </a>
+                        <p class="post-meta">{{ oldPost.createdAt | ago }}</p>
+                    </div>
+                {% endfor %} #}
+
+            </div>
+</main>
 {% endblock %}
+
+ 

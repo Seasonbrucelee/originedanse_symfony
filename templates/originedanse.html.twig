@@ -55,18 +55,18 @@
 {% block body %}{% endblock %}
 
 <footer>
-            <!-- ________ navigation secondaire ________ -->
-           <nav>
-               <ul>
-                    <li><a href="{{ path ('page_about') }}">Qui sommes-nous?</a></li>
-                    <li><a href="{{ path ('page_contact') }}">Contact</a></li>
-                    <li><a href="#">CGV</a></li>
-                </ul>
-            </nav>
+        <!-- ________ navigation secondaire ________ -->
+        <nav>
+            <ul>
+                <li><a href="{{ path ('page_about') }}">Qui sommes-nous?</a></li>
+                <li><a href="{{ path ('page_contact') }}">Contact</a></li>
+                <li><a href="#">CGV</a></li>
+            </ul>
+        </nav>
             <!-- ________ social networks ________ -->
-            <section>
-                    <a href="#">
-                        <img src="{{ asset('originedanse/images/icon-facebook.png') }}" alt="Facebook">
+        <section class="icon">   
+                    <a>        
+                    <img src="{{ asset('originedanse/images/icon-facebook.png') }}" alt="Facebook">
                     </a>
                     <a href="#">
                         <img src="{{ asset('originedanse/images/icon-twitter.png') }}" alt="Twitter">
@@ -74,8 +74,9 @@
                     <a href="#">
                         <img src="{{ asset('originedanse/images/icon-linkedin.png') }}" alt="Linkedin">
                     </a>
-            </section>
+            
+        </section>
             <p>&copy; 2010 Origine Danse. Tous droits réservés.</p>
-    </footer>
+</footer>
 </body>
 </html>

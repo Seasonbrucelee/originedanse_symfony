@@ -50,18 +50,16 @@ a:hover{
     color: #0c49df;
 }
 
-main{
+/*main{
     padding: 0;
     margin: 0;
 }
-main>figure{
-    overflow: hidden;
-}
+
 main>figure img{
     width: 100%;
-    display: block;
-    position: relative;
-}
+    display: flex;
+    position: fixed;
+}*/
 h1{
     color: #b4351c;
     text-align: center;
@@ -181,7 +179,7 @@ footer section+p {
 @media all and (min-width:1030px) {
     /* ============================= global layout =============================== */
     html{
-        font-size: 50%;
+        font-size: 100%;
     }
     header {
         display: flex;
@@ -199,9 +197,9 @@ footer section+p {
     }
 
     /* =================================== main =================================== */
-    main {
+    /*main {
         padding: 25px 0 0 0;
-    }
+    }*/
     /* ........ large image ......... */
     main>figure img {
         width: 100%;
@@ -209,7 +207,7 @@ footer section+p {
         padding: 10px;
     }
     /* ........ articles ......... */
-    main section {
+    /*main section {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -218,7 +216,7 @@ footer section+p {
         position: relative;
         margin-bottom: 70px;
         width: 35%;
-    }
+    }*/
     /* =================================== footer =================================== */
     /* ........ footer nav ......... */
     footer nav{
@@ -256,6 +254,11 @@ footer section+p {
     footer section+section a {
         margin: 0 35px;
     }
+}
+main .icon{
+    display: flex;
+    flex-direction: row;
+    
 }
 
 /*......INSCRIPTION CSS...*/
@@ -433,7 +436,31 @@ cursor: pointer;
 }
 input[type=submit]:hover {
 background-color:#0c49df;
-;
+}
+.test{
+    width: 60%;
+    margin: auto;
+}
+.ancienArticle{
+    text-transform: uppercase;
+    color: #e42e0a;
+    border: 1px solid #e42e0a;
+    margin-left: 50%;
+    width: 57%;
+    padding: 5px 0;
+    transform: translateX(-50%);
+    border-radius: 5px;  
+}
+.test p{
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    margin-top: -10px;
 }
 
-
+.post-preview{
+    padding-bottom: 12px;
+}
+.test a{
+    margin-left: 80%;
+}

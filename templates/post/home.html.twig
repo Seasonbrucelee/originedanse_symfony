@@ -20,7 +20,7 @@
                         <h2>{{ post.title }}</h2>
                         <p>{{ post.content | u.truncate(150, '...') | raw}}</p>
                         <p>
-                            Ecrit par {{ post.user.email }} {{ post.createdAt | ago}} - Classé dans {{ post.category.name }}
+                            Ecrit par {{ post.user.email }} {{ post.createdAt | ago}} - Classé dans <a href="{{ path('app_category', {slug: post.category.slug}) }}">{{ post.category.name }}<a/>
                         </p>
                     </a>
                 </div>
@@ -48,36 +48,36 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
             </a>
         </article>-->
-            <!-- Sidebar -->
-        <
+            
         <section>
         <div class="container">   
-        <article>
+        
             <h2>Battle Krumpfest-Demo Speaker WRESTLER</h2>
                 <iframe width="650" height="500" src="https://www.youtube.com/embed/GCQlfDdf68g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </article>
         </section>
-        <aside>
+        <section>
                 <h2>Le son du moment</h2>
                 <iframe src="https://open.spotify.com/embed/track/58pXqeiCCwGBQGugChlYwn?utm_source=generator" width="650" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-        </aside>
+        </section>
         </div>    
+        <aside>
         <!-- Pager-->
-                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
             </div>
             <!-- Sidebar -->
-            <div class="col-lg-4 col-md-4 mx-auto">
-                <h2>Les anciens articles</h2>
+            <div class="test">
+            
+                <h2 class="ancienArticle">Les anciens articles</h2>
                 
                 {% for oldPost in oldPosts %}
                     <div class="post-preview">
                         <a href="{{ path('post_view', {slug: oldPost.slug}) }}">
                             <h2 class="post-subtitle">{{ oldPost.title }}</h2>
+                        <p class="">{{ oldPost.createdAt | ago }}</p>
                         </a>
-                        <p class="post-meta">{{ oldPost.createdAt | ago }}</p>
                     </div>
                 {% endfor %}
-
+                <a class="" href="#!">Older Posts →</a>
             </div>
+        </aside>
 </main>
 {% endblock %}
