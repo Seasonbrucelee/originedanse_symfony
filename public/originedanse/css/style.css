@@ -75,8 +75,8 @@ main section{
 }
 main article {
     position: relative;
-    margin-bottom: 70px;
-    margin-top: 70px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     width: 70%;
 }
 article{
@@ -104,11 +104,10 @@ article figure img{
     flex-wrap: wrap;
 }
 article iframe{
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: center;
-    align-self: center;
     margin: 10px;
 }
 /*aside{
@@ -116,11 +115,7 @@ article iframe{
     flex-direction: column;
     align-items: center;
 }*/
-aside iframe{
-    display: flex;
-    flex-direction: row;
-    align-content: space-around;
-}
+
 /********************** FOOTER NAV *************************/
 
 footer{
@@ -177,83 +172,92 @@ footer section+p {
 }
 
 @media all and (min-width:1030px) {
-    /* ============================= global layout =============================== */
-    html{
-        font-size: 100%;
-    }
-    header {
-        display: flex;
-        flex-direction: row;
-    }
-    header nav ul{
-        display: flex;
-        flex-direction: row;
-        width: auto;
-    }
-    header nav ul li{
-        width: auto;
-        padding: 10px;
-        margin: 10px;
-    }
 
-    /* =================================== main =================================== */
-    /*main {
-        padding: 25px 0 0 0;
-    }*/
-    /* ........ large image ......... */
-    main>figure img {
+/* ============================= global layout =============================== */
+html{
+    font-size: 100%;
+}
+header {
+    display: flex;
+    flex-direction: row;
+}
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+header nav ul li{
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+}
+/* =================================== main =================================== */
+
+/* ........ large image ......... */
+main>figure img {
+    width: 100%;
+    position: static;
+    padding: 10px;
+}
+/** IFRAME****/
+
+iframe{
         width: 100%;
-        position: static;
-        padding: 10px;
-    }
-    /* ........ articles ......... */
-    /*main section {
+        width: 80%;
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-    main article {
-        position: relative;
-        margin-bottom: 70px;
-        width: 35%;
-    }*/
-    /* =================================== footer =================================== */
-    /* ........ footer nav ......... */
-    footer nav{
-        display: flex;
-        flex-direction: row;
-        width: 100%
-    }
-    footer nav ul{
-        display: flex;
-        flex-direction: row;
-       /* justify-content: center;*/
-        width: 100%;
-    }
-    footer nav ul li{
-        display: flex;
-        justify-content: center;
-        list-style-type: none;
-       /* background-color: yellow;*/
-        font-family: 'Ubuntu', sans-serif;  
-        font-size: 30px;
-    }
-    
-    /* ........ footer div ....... */
-    footer>div {
-        padding-top: 65px;
-    }
-    /* ........ arguments ......... */
-    footer nav+section article {
-        width: 22%;
-    }
-    footer nav+section article figure {
-        width: 30%;
-    }
-    /* ........ social ......... */
-    footer section+section a {
-        margin: 0 35px;
-    }
+        margin: 10px;
+}
+
+/* ........ articles ......... */
+/*main section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+main article {
+    position: relative;
+    margin-bottom: 70px;
+    width: 35%;
+}*/
+/* =================================== footer =================================== */
+/* ........ footer nav ......... */
+footer nav{
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+footer nav ul{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;*/
+    width: 100%;
+}
+footer nav ul li{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    /* background-color: yellow;*/
+    font-family: 'Ubuntu', sans-serif;  
+    font-size: 30px;
+}
+
+/* ........ footer div ....... */
+footer>div {
+    padding-top: 65px;
+}
+/* ........ arguments ......... */
+footer nav+section article {
+    width: 22%;
+}
+footer nav+section article figure {
+    width: 30%;
+}
+/* ........ social ......... */
+footer section+section a {
+    margin: 0 35px;
+}
 }
 main .icon{
     display: flex;
@@ -437,6 +441,8 @@ cursor: pointer;
 input[type=submit]:hover {
 background-color:#0c49df;
 }
+
+/*** Mise en place de OLD POST dans template home.html.twig ***/
 .test{
     width: 60%;
     margin: auto;

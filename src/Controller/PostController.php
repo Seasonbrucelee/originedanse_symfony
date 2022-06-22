@@ -19,7 +19,8 @@ class PostController extends AbstractController
         //$posts = $postRepository->findAll(); //Le Controlleur récupère les données
         //dd($posts);
 
-       $posts = $postRepository->findAll();
+       //$posts = $postRepository->findAll();
+       $posts = $postRepository->findLastPosts();
        //dd($posts);
     
        $oldPosts = $postRepository->findOldPosts();

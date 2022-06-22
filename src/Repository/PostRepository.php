@@ -53,7 +53,17 @@ class PostRepository extends ServiceEntityRepository
         ;
         return $query->getResult();// méthode de l'objet ORM
     }
-
+    public function findLastPosts(int $nb = 5)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.active = :active')
+            ->setParameter('active', true)
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults($nb)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */

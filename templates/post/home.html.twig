@@ -20,46 +20,33 @@
                         <h2>{{ post.title }}</h2>
                         <p>{{ post.content | u.truncate(150, '...') | raw}}</p>
                         <p>
-                            Ecrit par {{ post.user.email }} {{ post.createdAt | ago}} - Classé dans <a href="{{ path('app_category', {slug: post.category.slug}) }}">{{ post.category.name }}<a/>
+                            Ecrit par {{ post.user.email }}
+                            - {{ post.createdAt | ago}} 
+                            <a href="{{ path('app_category', {slug: post.category.slug}) }}">
+                           - Classé dans {{ post.category.name }}</a>
                         </p>
                     </a>
                 </div>
             </article>
         </section>
         {% endfor %}
-        <!--<article>
-            <a href="{#{{ path('post_view', {id:2}) }}">
-            <figure><img src="{{ asset('originedanse/images/enfanttribut.jpg') }}#}" alt="photo enfant de tribut"></figure>
-            <h2>Origine du Krump</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
-            </a>
-        </article>
-        <article>
-            <a href="{#{{ path('post_view', {id:3}) }}#}">
-            <figure><img src="{#{{ asset('originedanse/images/connection.jpg') }}#}" alt="spiritualité"></figure>
-            <h2>Connection à ses émotions dans le Krump</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
-            </a>
-        </article>
-        <article>
-            <a href="{#{{ path('post_view', {id:4}) }}#}">
-            <figure><img src="{#{{ asset('originedanse/images/krumpeuse.jpg') }}#}" alt="krumpeuse"></figure>
-            <h2>La mise en avant des femmes dans le Krump</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
-            </a>
-        </article>-->
-            
-        <section>
-        <div class="container">   
         
+        <section>
+        <article>
+        <div>   
             <h2>Battle Krumpfest-Demo Speaker WRESTLER</h2>
-                <iframe width="650" height="500" src="https://www.youtube.com/embed/GCQlfDdf68g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="450" height="300" src="https://www.youtube.com/embed/GCQlfDdf68g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <article>
         </section>
         <section>
+        <article>
+        <div>
                 <h2>Le son du moment</h2>
-                <iframe src="https://open.spotify.com/embed/track/58pXqeiCCwGBQGugChlYwn?utm_source=generator" width="650" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/58pXqeiCCwGBQGugChlYwn?utm_source=generator" width="450" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+        </article>
         </section>
-        </div>    
         <aside>
         <!-- Pager-->
             </div>
@@ -80,4 +67,25 @@
             </div>
         </aside>
 </main>
+ <!--<article>
+            <a href="{#{{ path('post_view', {id:2}) }}">
+            <figure><img src="{{ asset('originedanse/images/enfanttribut.jpg') }}#}" alt="photo enfant de tribut"></figure>
+            <h2>Origine du Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+            </a>
+        </article>
+        <article>
+            <a href="{#{{ path('post_view', {id:3}) }}#}">
+            <figure><img src="{#{{ asset('originedanse/images/connection.jpg') }}#}" alt="spiritualité"></figure>
+            <h2>Connection à ses émotions dans le Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+            </a>
+        </article>
+        <article>
+            <a href="{#{{ path('post_view', {id:4}) }}#}">
+            <figure><img src="{#{{ asset('originedanse/images/krumpeuse.jpg') }}#}" alt="krumpeuse"></figure>
+            <h2>La mise en avant des femmes dans le Krump</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, laudantium ipsum soluta doloremque odio consequuntur quos.</p>
+            </a>
+        </article>-->
 {% endblock %}
