@@ -3,7 +3,7 @@
 {% block title %}Ajout d'une catégorie{% endblock %}
     
 {% block body %}
-
+    <main>
         <div class="container-fluid px-4">
             <h1>Ajout d'une catégorie</h1>
             {#(form) est celui qui est dans AdminController 'form', le controlleur envoie dans une case qui s'appelle 'form' à twig et twig envoie createView#}
@@ -12,5 +12,5 @@
             {#Cette fonction affiche le formulaire reçu dans la variable twig qui s'appelle form #}
             {{ form(form) }}
         </div>
-
+    </main>
 {% endblock %}
