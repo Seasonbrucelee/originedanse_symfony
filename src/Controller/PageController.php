@@ -7,7 +7,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageController extends AbstractController
-{
+{   
+    #[Route('/cours', name: 'page_cours')]
+    public function cours(): Response
+    {
+        return $this->render('page/cours.html.twig', [
+            'controller_name' => 'PageController',
+        ]);
+    }
     #[Route('/about', name: 'page_about')]
     public function about(): Response
     {
@@ -22,4 +29,5 @@ class PageController extends AbstractController
             'controller_name' => 'PageController',
         ]);
     }
+    
 }
