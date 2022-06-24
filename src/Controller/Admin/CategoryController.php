@@ -44,7 +44,7 @@ class CategoryController extends AbstractController
             $em = $doctrine->getManager();
             $em->persist($category);
             $em->flush();
-        return $this->redirectToRoute('admin_home');
+        return $this->redirectToRoute('admin_category_index');
         }
         //dd($form->createView());
         //dd($form);
@@ -53,7 +53,47 @@ class CategoryController extends AbstractController
             'controller_name' => 'Add Category',*/
         return $this->render('admin/category/add.html.twig', [
             'form' => $form->createView(),
+            'title' => 'Ajout d\'une catégorie',
         ]);
+    }
+
+    #[Route('/update/{id}', name: 'update')]
+    /** (Request $request) = Objet Request et injection de dépendance */
+    public function updateCategory(Category $category, Request $request, ManagerRegistry $doctrine): Response
+    {
+        //Comme l'instance est déjà rempli on enlève la variable ci-dessous 
+        //$category = new Category();
+        
+        //dd($category);
+        //On demande de fabriquer un formulaire. en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
+        $form = $this->createForm(CategoryType::class, $category);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            //$em = $this->getDoctrine()->getManager();
+            $em = $doctrine->getManager();
+            $em->persist($category);
+            $em->flush();
+        return $this->redirectToRoute('admin_category_index');
+        }
+        //dd($form->createView());
+        //dd($form);
+        //On appelle une vue et on lui passe le form transformé en html
+        /*return $this->render('admin/index.html.twig', [
+            'controller_name' => 'Add Category',*/
+        return $this->render('admin/category/add.html.twig', [
+            'form' => $form->createView(),
+            'title' => 'Modification d\'une catégorie',
+        ]);
+    }
+    #[Route('/delete/{id}', name: 'delete')]
+    public function delete(Category $category, ManagerRegistry $doctrine): Response
+    {
+        $em = $doctrine->getManager();
+        $em->remove($category);
+        $em->flush();
+        $this->addFlash('success', 'Catégorie supprimée !');
+        return $this->redirectToRoute('admin_post_index');
     }
 }
 

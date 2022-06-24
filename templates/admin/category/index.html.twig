@@ -6,7 +6,9 @@
     <main>
         <div class="container-fluid px-4">
 
-            <h1>Liste des catégories</h1>
+            <h1>Liste des catégories
+            <a href="{{ path('admin_category_add') }}" class="btn btn-primary">Ajouter</a>
+            </h1>
             {#{{ dump(categories)}}#}
 
             <div class="card mb-4">
@@ -44,8 +46,8 @@
                             <td>{{ category.id }}</td>
                             <td>{{ category.name }}</td>
                             <td>{{ category.slug }}</td>
-                            <td></td>
-                            <td></td>
+                            <td> <a href="{{ path('admin_category_update', {id: category.id}) }}" class="btn btn-primary btn-sm">Modifier</a></td>
+                            <td><a href="" class="btn btn-danger btn-sm modal-trigger" data-bs-toggle="modal" data-bs-target="#modalDelete" data-id="{{ category.id }}" data-title="{{ category.name }}">Supprimer</a></td>
                             <td></td>
                         </tr>
 

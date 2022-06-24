@@ -89,7 +89,7 @@ h2{
     color: #b4351c;
     text-align: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     margin: 20px;
 }
 p{
@@ -175,7 +175,7 @@ footer section+p {
 
 /* ============================= global layout =============================== */
 html{
-    font-size: 100%;
+    font-size: 50%;
 }
 header {
     display: flex;
@@ -190,6 +190,9 @@ header nav ul li{
     width: auto;
     padding: 10px;
     margin: 10px;
+}
+h1{
+    font-size: 50px;
 }
 /* =================================== main =================================== */
 
@@ -479,9 +482,10 @@ background-color:#0c49df;
   }
   
   h1 {
-    font-size: 50px;
+    font-size: 40px;
     word-break: break-all;
   }
+  
   h4 {
     font-size: medium;
     word-break: break-all;
@@ -527,8 +531,8 @@ background-color:#0c49df;
     border: none;
     outline: none;
     padding: 12px 16px;
-    background-color:#0c49df;
-    color: #b4351c;
+    background-color:#b4351c;
+    color: white;
     cursor: pointer;
   }
   
@@ -537,6 +541,6 @@ background-color:#0c49df;
   }
   
   .btn.active {
-    background-color: #200c6a;
-    color: #b4351c;
+    background-color: #0c49df;
+    color: white;
   }
