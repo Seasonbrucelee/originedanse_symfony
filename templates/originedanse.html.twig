@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>  
-    <header>
+    <header class=".nach" style="background-image: url{{" asset('originedanse/images/nachk.jpg') "}} width:100%"> 
         <div>
             <img src="{{ asset('originedanse/images/logo_texte.png') }}" alt="logo" width="150">
         </div>
@@ -31,9 +31,11 @@
 
                 {% else %}
 
-                <li class="nav-item">
-                <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('post_add') }}">Proposer un article</a>
+                <li>
+                <a href="{{ path('post_add') }}">Proposer un article</a>
                 </li>
+
+                <li><a href="{{ path('admin_home') }}">Admin</a></li>
 
                 <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                 {% endif %}
