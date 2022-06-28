@@ -402,15 +402,29 @@ margin-right: auto;
 width: 25%;
 height: 20%;
 }
-/** MISE EN FORME DE L'IMAGE PRINCINCIPAL DANS home.html.twig**/
+/** MISE EN FORME DE L'IMAGE PRINCINCIPAL EN BACKGO DANS home.html.twig**/
 .nach{
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 82%;
-height: auto;
+display: flex;
+flex-direction: row;
 
+flex-wrap: nowrap;
+
+height: 60vh;
+
+min-height: fit-content;
+
+/* Center and scale the image nicely */
+background-position: top;
+background-repeat: no-repeat;
+background-size: cover;
+
+/* Needed to position the navbar */
+position: relative;
 }
+.logo{
+    display: inline;
+}
+
 /*** MISE EN PAGE DU FORMULAIRE DE LA PAGE CONTACT ***/
 select, textarea {
 width: 100%;
@@ -543,4 +557,32 @@ background-color:#0c49df;
   .btn.active {
     background-color: #0c49df;
     color: white;
+  }
+/* Create a sticky/fixed navbar */
+#navbar {
+    overflow: hidden; 
+    position: fixed; /* Sticky/fixed navbar */
+    width: 100%;
+   /*top: 0; /* At the top */
+    z-index: 1;
+    background-color: #031472;
+}
+#navbar-right {
+    float: right;
+}
+#navbar-right a{
+    width: 110px;
+}
+@media all and (max-width: 1030px) {
+    #navbar {
+      padding: 20px 10px !important;
+    }
+    #navbar a {
+      float: none;
+      display: flex;
+      text-align: left;
+    }
+    #navbar-right {
+      float: none;
+    }
   }

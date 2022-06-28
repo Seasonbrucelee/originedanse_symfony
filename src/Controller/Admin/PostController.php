@@ -4,7 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Form\PostType;
+
 use App\Repository\PostRepository;
+
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,71 +15,86 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/post', name: 'admin_post_')]
 class PostController extends AbstractController
-{
+{   
     /* Cette Route appelle une vue */
     #[Route('/', name: 'index')]
     public function index(PostRepository $postRepository): Response
     {
         $posts = $postRepository->findAll();
+        
         return $this->render('admin/post/index.html.twig', [
+            /* Tableau des données qui est envoyé à la vue */
             'posts' => $posts,
         ]);
     }
-    #[Route('add', name:'add')]
+
+    #[Route('/add', name: 'add')]
+    /** (Request $request) = Objet Request et injection de dépendance */
     public function addPost(Request $request, ManagerRegistry $doctrine): Response
     {
+        //dd($request);
+        // Instance de Category 
         $post = new Post();
+        
+        //dd($category);
+        //On demande de fabriquer un formulaire. en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
         $form = $this->createForm(PostType::class, $post);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            
-        $post->setUser($this->getUser());
-        $post->setActive(false);
-        //$em = $this->getDoctrine()->getManager();
-        $em = $doctrine->getManager();
-        $em->persist($post);
-        $em->flush();
-        return $this->redirectToRoute('home');
-    }
+            //$em = $this->getDoctrine()->getManager();
+            $em = $doctrine->getManager();
+            $em->persist($post);
+            $em->flush();
+        return $this->redirectToRoute('admin_post_index');
+        }
+        //dd($form->createView());
+        //dd($form);
+        //On appelle une vue et on lui passe le form transformé en html
+        /*return $this->render('admin/index.html.twig', [
+            'controller_name' => 'Add Category',*/
         return $this->render('admin/post/add.html.twig', [
             'form' => $form->createView(),
+            'title' => 'Ajout d\'un article',
         ]);
     }
-   /**#[Route('/post/{slug}', name: 'post_view')] //was app_post
-    public function post(Post $post): Response
-    {   
-        //dd($post);
-        return $this->render('post/view.html.twig', [
-            'post' => $post               
-        ]);
-    }***/
-    #[Route('/post/{slug}', name: 'post_view')]
-    public function post(Post $post): Response
-    {   
-        //dd($post);
 
-        return $this->render('admin/post/view.html.twig', [
-            'post' => $post
-
-          /*return $this->render('post/view.html.twig', [
-            'post' => [
-                'title' => 'Film RIZE',
-                'content' => '
-                Rize révèle un phénomène urbain qui est en train d\'exploser à Los Angeles et de se propager sur la Côte Est. Parce qu\'il est au contact de celui-ci depuis longtemps, le photographe David Lachapelle a réussi à saisir la naissance d\'une forme révolutionnaire d\'expression artistique issue du mal de vivre des exclus du rêve américain : le krumping.
-
-                Cette danse agressive et visuellement incroyable, alternative à la danse hip hop habituelle, prend ses racines dans les danses tribales africaines et se caractérise par des pas et des mouvements d\'une vitesse et d\'une difficulté inégalées.
-
-                Rize suit cette fascinante évolution à travers l\'histoire de Tommy le Clown, un éducateur de South Central à Los Angeles, qui a inventé cette danse en réponse aux émeutes raciales consécutives à l\'affaire Rodney King.'
-            ],*/
-        ]);
-       }
-}
-   /***#[Route('/post/{id}', name: 'post_id', methods: ["GET"], requirements: ['id' => '\d+'])]
-    public function post_id($id): Response
+    #[Route('/update/{id}', name: 'update')]
+    /** (Request $request) = Objet Request et injection de dépendance */
+    public function updatePost(Post $post, Request $request, ManagerRegistry $doctrine): Response
     {
-        return $this->render('post/post.html.twig', [
-            'controller_name' => 'PostControllerAvecId',
-            'id' => $id,
+        //Comme l'instance est déjà rempli on enlève la variable ci-dessous 
+        //$category = new Category();
+        
+        //dd($category);
+        //On demande de fabriquer un formulaire. en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
+        $form = $this->createForm(PostType::class, $post);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            //$em = $this->getDoctrine()->getManager();
+            $em = $doctrine->getManager();
+            $em->flush();
+        return $this->redirectToRoute('admin_category_index');
+        }
+        //dd($form->createView());
+        //dd($form);
+        //On appelle une vue et on lui passe le form transformé en html
+        /*return $this->render('admin/index.html.twig', [
+            'controller_name' => 'Add Category',*/
+        return $this->render('admin/category/add.html.twig', [
+            'form' => $form->createView(),
+            'title' => 'Modification d\'une catégorie',
         ]);
-    }***/
+    }
+    #[Route('/delete/{id}', name: 'delete')]
+    public function delete(Post $post, ManagerRegistry $doctrine): Response
+    {
+        $em = $doctrine->getManager();
+        $em->remove($post);
+        $em->flush();
+        $this->addFlash('success', 'Catégorie supprimée !');
+        return $this->redirectToRoute('admin_category_index');
+    }
+}
+

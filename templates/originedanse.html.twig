@@ -14,30 +14,34 @@
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body>  
-    <header class=".nach" style="background-image: url{{" asset('originedanse/images/nachk.jpg') "}} width:100%"> 
-        <div>
-            <img src="{{ asset('originedanse/images/logo_texte.png') }}" alt="logo" width="150">
-        </div>
-        <nav>
+<body>
+    {% block imagea %}
+    <header class="nach" style="background-image: url('{{ asset('originedanse/images/rize2.jpg') }} ')"> 
+        <div id="navbar">
+            <a href="#" id="logo"><img src="{{ asset('originedanse/images/logo_texte.png') }}" alt="logo" width="150"><a>
+        
+        <nav id="navbar-right">
             <ul>
-                <li><a href="{{ path('home') }}">Accueil</a></li>
-                <li><a href="{{ path('page_cours') }}">Cours Open</a></li>
+                    <li><a href="{{ path('home') }}">Accueil</a></li>
+                    <li><a href="{{ path('page_cours') }}">Cours Open</a></li>
                 
                 {% if not is_granted("ROLE_USER") %}
 
-                <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
-                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                    <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
+                    <li><a href="{{ path('app_login') }}">Connexion</a></li>
 
                 {% else %}
 
-                <li>
-                <a href="{{ path('post_add') }}">Proposer un article</a>
-                </li>
+                    <li>
+                    <a href="{{ path('post_add') }}">Proposer un article</a>
+                    </li>
 
-                <li><a href="{{ path('admin_home') }}">Admin</a></li>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li><a href="{{ path('admin_home') }}">Admin</a></li>
+                {% endif %}
 
-                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                    <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+
                 {% endif %}
 
                 {% for message in app.flashes('success') %}
@@ -50,9 +54,10 @@
 
 
             </ul>
-        </nav>  
+        </nav>
+       </div> 
     </header>
-
+{% endblock %}
 
 {% block body %}{% endblock %}
 
