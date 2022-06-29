@@ -368,7 +368,7 @@ margin: 24px 0 12px 0;
 
 /* Avatar image */
 img.avatar {
-width: 40%;
+width: 15%;
 border-radius: 50%;
 }
 
@@ -402,7 +402,7 @@ margin-right: auto;
 width: 25%;
 height: 20%;
 }
-/** MISE EN FORME DE L'IMAGE PRINCINCIPAL EN BACKGO DANS home.html.twig**/
+/** MISE EN FORME DE L'IMAGE PRINCINCIPAL EN BACKGROUND DANS origine.html.twig**/
 .nach{
 display: flex;
 flex-direction: row;

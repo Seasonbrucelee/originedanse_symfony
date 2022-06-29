@@ -35,7 +35,7 @@ class CategoryController extends AbstractController
         $category = new Category();
         
         //dd($category);
-        //On demande de fabriquer un formulaire. en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
+        //On demande de fabriquer un formulaire en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
         $form = $this->createForm(CategoryType::class, $category);
 
         $form->handleRequest($request);
