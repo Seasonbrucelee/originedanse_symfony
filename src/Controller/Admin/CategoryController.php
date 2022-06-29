@@ -11,15 +11,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+// Ici on définit la partie commune de toutes les catégories
 #[Route('/admin/category', name: 'admin_category_')]
 class CategoryController extends AbstractController
 {   
-    /* Cette Route appelle une vue */
+    /* Ici on définit la Route qui va déclencher la fonction */
     #[Route('/', name: 'index')]
     public function index(CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
-        
+        // Ci-dessous on envoi à la vue les données
         return $this->render('admin/category/index.html.twig', [
             /* Tableau des données qui est envoyé à la vue */
             'categories' => $categories,

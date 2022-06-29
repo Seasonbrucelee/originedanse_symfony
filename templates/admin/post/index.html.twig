@@ -6,14 +6,15 @@
     <main>
         <div class="container-fluid px-4">
         {#{{ dump(posts)}}#}
-            <h1>Liste des articles
-            <a href="{{ path('admin_post_add') }}" class="btn btn-primary">Ajouter</a>
+            <h1>
+                Liste des articles
+                <a href="{{ path('admin_post_add') }}" class="btn btn-primary">Ajouter</a>
             </h1>
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
-                            <th>Numéro</th>
+                            <th>N°</th>
                             <th>Libellé</th>
                             <th>Categry Id</th>
                             <th>Titre de l'articles</th>
@@ -26,9 +27,9 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Numéro</th>
+                            <th>N°</th>
                             <th>Libellé</th>
-                            <th>Categry Id</th>
+                            <th>Category Id</th>
                             <th>Titre de l'articles</th>
                             <th>Slug</th>
                             <th>Contenu</th>
@@ -49,7 +50,7 @@
                             <td>{{ post.slug }}</td>
                             <td>{{ post.content | u.truncate(100, '...') | raw }}</td>
                             <td>{{ post.image | u.truncate(10, '...') | raw }}</td>
-                            <td>{{ post.createdAt | ago}}</td>
+                            <td>{{ post.createdAt | date }}</td>
                             <td>{{ post.active }}</td>
                             <td><a href="{{ path('admin_post_update', {id: post.id}) }}" class="btn btn-primary btn-sm">Modifier</a>
                             </td>
@@ -91,7 +92,7 @@
             
                 btdelete.addEventListener("click", function(){
                     document.querySelector(".modal-footer a").href=`/admin/post/delete/${this.dataset.id}`
-                    document.querySelector(".modal-body").innerText = `Etes-vous sûr de vouloir supprimer la categorie"${this.dataset.title}"`
+                    document.querySelector(".modal-body").innerText = `Etes-vous sûr de vouloir supprimer cet article : "${this.dataset.title}"`
                 })
             }
         }

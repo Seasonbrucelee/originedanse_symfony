@@ -30,6 +30,7 @@ class PostController extends AbstractController
 
     #[Route('/add', name: 'add')]
     /** (Request $request) = Objet Request et injection de dépendance */
+    
     public function addPost(Request $request, ManagerRegistry $doctrine): Response
     {
         //dd($request);
@@ -75,16 +76,16 @@ class PostController extends AbstractController
             //$em = $this->getDoctrine()->getManager();
             $em = $doctrine->getManager();
             $em->flush();
-        return $this->redirectToRoute('admin_category_index');
+        return $this->redirectToRoute('admin_post_index');
         }
         //dd($form->createView());
         //dd($form);
         //On appelle une vue et on lui passe le form transformé en html
         /*return $this->render('admin/index.html.twig', [
             'controller_name' => 'Add Category',*/
-        return $this->render('admin/category/add.html.twig', [
+        return $this->render('admin/post/add.html.twig', [
             'form' => $form->createView(),
-            'title' => 'Modification d\'une catégorie',
+            'title' => 'Modification d\'un article',
         ]);
     }
     #[Route('/delete/{id}', name: 'delete')]
@@ -93,8 +94,8 @@ class PostController extends AbstractController
         $em = $doctrine->getManager();
         $em->remove($post);
         $em->flush();
-        $this->addFlash('success', 'Catégorie supprimée !');
-        return $this->redirectToRoute('admin_category_index');
+        $this->addFlash('success', 'Article supprimé !');
+        return $this->redirectToRoute('admin_post_index');
     }
 }
 
