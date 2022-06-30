@@ -47,6 +47,7 @@ class PostController extends AbstractController
             
         $post->setUser($this->getUser());
         $post->setActive(false);
+        
         //$em = $this->getDoctrine()->getManager();
         $em = $doctrine->getManager();
         $em->persist($post);

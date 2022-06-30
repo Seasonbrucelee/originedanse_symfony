@@ -36,13 +36,15 @@ class PostController extends AbstractController
         //dd($request);
         // Instance de Category 
         $post = new Post();
-        
         //dd($category);
         //On demande de fabriquer un formulaire. en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
         $form = $this->createForm(PostType::class, $post);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $post->setUser($this->getUser());
+            $post->setActive(true);
             //$em = $this->getDoctrine()->getManager();
             $em = $doctrine->getManager();
             $em->persist($post);
