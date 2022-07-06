@@ -34,9 +34,9 @@ class PostController extends AbstractController
     public function addPost(Request $request, ManagerRegistry $doctrine): Response
     {
         //dd($request);
-        // Instance de Category 
+        // Instance de Post
         $post = new Post();
-        //dd($category);
+        //dd($post);
         //On demande de fabriquer un formulaire. en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
         $form = $this->createForm(PostType::class, $post);
 
@@ -55,10 +55,20 @@ class PostController extends AbstractController
         //dd($form);
         //On appelle une vue et on lui passe le form transformé en html
         /*return $this->render('admin/index.html.twig', [
-            'controller_name' => 'Add Category',*/
+            'controller_name' => 'Add Post',*/
         return $this->render('admin/post/add.html.twig', [
             'form' => $form->createView(),
             'title' => 'Ajout d\'un article',
+        ]);
+    }
+
+    #[Route('/post/{slug}', name: 'view')]
+    public function post(Post $post): Response
+    {   
+        //dd($post);
+
+        return $this->render('admin/post/view.html.twig', [
+            'post' => $post
         ]);
     }
 
@@ -67,9 +77,9 @@ class PostController extends AbstractController
     public function updatePost(Post $post, Request $request, ManagerRegistry $doctrine): Response
     {
         //Comme l'instance est déjà rempli on enlève la variable ci-dessous 
-        //$category = new Category();
+        //$post = new Post();
         
-        //dd($category);
+        //dd($post);
         //On demande de fabriquer un formulaire. en mémoire de préfabriquer un contenu HTML sur la base de ce que l'on a mit dans le fichier formulaire PHP
         $form = $this->createForm(PostType::class, $post);
 
@@ -78,6 +88,7 @@ class PostController extends AbstractController
             //$em = $this->getDoctrine()->getManager();
             $em = $doctrine->getManager();
             $em->flush();
+            $this->addFlash('succes', 'Article modifié !');
         return $this->redirectToRoute('admin_post_index');
         }
         //dd($form->createView());
@@ -99,5 +110,6 @@ class PostController extends AbstractController
         $this->addFlash('success', 'Article supprimé !');
         return $this->redirectToRoute('admin_post_index');
     }
+   
 }
 

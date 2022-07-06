@@ -48,8 +48,8 @@
                             <td>{{ post.category.id }}</td>
                             <td>{{ post.title }}</td>
                             <td>{{ post.slug }}</td>
-                            <td>{{ post.content | u.truncate(100, '...') | raw }}</td>
-                            <td>{{ post.image | u.truncate(10, '...') | raw }}</td>
+                            <td><a href="{{ path('admin_post_view', {slug: post.slug}) }}">{{ post.content | u.truncate(150, '...') | raw }}</a></td>
+                            <td>{{ post.image | u.truncate(10, '...') | raw }} </td>
                             <td>{{ post.createdAt | date }}</td>
                             <td>{{ post.active }}</td>
                             <td><a href="{{ path('admin_post_update', {id: post.id}) }}" class="btn btn-primary btn-sm">Modifier</a>
