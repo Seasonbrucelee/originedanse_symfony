@@ -589,4 +589,7 @@ background-color:#0c49df;
         float: none;
     }
 }
-  
+/***RESET PASSWORD*** /
+small{
+  font-size: 30px
+}
