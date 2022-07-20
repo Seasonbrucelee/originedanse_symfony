@@ -15,30 +15,37 @@
     {% endif %}
     
     <form>
-    <div class="imgcontainer">
-        <img src="{{ asset('originedanse/images/babyyoda.jpg') }}" alt="Avatar" class="avatar">
-    </div>
+        <div class="imgcontainer">
+            <img src="{{ asset('originedanse/images/babyyoda.jpg') }}" alt="Avatar" class="avatar">
+        </div>
 
     <div class="container">
 
-    <h2 class="h3 mb-3 font-weight-normal">Merci de vous identifier</h2>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            <h2 class="h3 mb-3 font-weight-normal">Merci de vous identifier</h2>
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
 
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-    <button class="btn btn-lg btn-primary" type="submit">
-        S'identifier
-    </button>
+            <input type="hidden" name="_csrf_token"
+                value="{{ csrf_token('authenticate') }}">
+
+            <button class="btn btn-lg btn-primary" type="submit">
+                S'identifier
+            </button>
+            <button class="mdpo">
+            <a href="{{ path ('app_forgot_password_request')}}"> Mot de passe oublié </a>
+            </button>
+        
       <div class="checkbox mb-3">
-            <label>
+        <label>
                 <input type="checkbox" name="_remember_me"> Se souvenir de moi
             </label>
-        </div>
-    </form>
+    </div>
+    
+        </form>
+   
+   
     
 {% endblock %}

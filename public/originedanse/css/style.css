@@ -444,7 +444,6 @@ background-color: #ddd;
 outline: none;
 }
 
-
 textarea:focus{
 background-color: #ddd;
 outline: none;
@@ -589,7 +588,10 @@ background-color:#0c49df;
         float: none;
     }
 }
-/***RESET PASSWORD*** /
-small{
-  font-size: 30px
+/***Mot de passe oublié***/
+.mdpo{
+    background-color: #668cff;
+}
+.mdpo a{
+  color: white;
 }
